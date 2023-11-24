@@ -1,0 +1,18 @@
+.loginContent {
+  display: grid;
+  grid-template-columns: 60vw 40vw;
+  grid-template-rows: 92.8vh;
+  grid-template-areas: "img login";
+  overflow: hidden;
+}
+.loginMain {
+  grid-area: "login";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.logo {
+  margin-bottom: 2rem;
+}
