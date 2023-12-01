@@ -1,4 +1,7 @@
 -- Active: 1700778124455@@127.0.0.1@3306@mae_ajuda
+
+
+use mae_ajuda;
 -- Tabela Pessoa
 CREATE TABLE Pessoa (
     CPF CHAR(11) PRIMARY KEY,
@@ -19,6 +22,13 @@ CREATE TABLE Profissional (
     CPF CHAR(11) PRIMARY KEY,
     FOREIGN KEY (CPF) REFERENCES Pessoa(CPF)
 );
+
+CREATE TABLE Medico (
+    CPF CHAR(11) PRIMARY KEY,
+    ESPECIALIDADE CHAR(30),
+    FOREIGN KEY (CPF) REFERENCES Pessoa(CPF)
+);
+
 
 -- Tabela Filho
 CREATE TABLE Filho (
@@ -48,3 +58,32 @@ CREATE TABLE Eventos (
     FOREIGN KEY (Profissional_CPF) REFERENCES Profissional(CPF),
     FOREIGN KEY (Usuario_CPF) REFERENCES Usuario(CPF)
 );
+
+
+-- Tabela Mensagem
+CREATE TABLE Mensagem (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Usuario_CPF CHAR(11),
+    Profissional_CPF CHAR(11),
+    Mensagem VARCHAR(255),
+    Data DATE,
+    Hora TIME,
+    FOREIGN KEY (Usuario_CPF) REFERENCES Usuario(CPF),
+    FOREIGN KEY (Profissional_CPF) REFERENCES Profissional(CPF)
+);
+
+show tables;
+
+INSERT INTO Filho (CPF, Endereco, Vacinas, DataNascimento, Doencas, Exames)
+VALUES ('12345678901', 'Rua A, 123', 'BCG, Hepatite B', '2020-01-15', 'Nenhuma', 'Check-up anual'),
+       ('98765432101', 'Av. B, 456', 'Hepatite B, Tríplice Viral', '2019-05-20', 'Alergia a amendoim', 'Hemograma completo');
+
+-- Inserir dados na tabela Eventos
+INSERT INTO Eventos (Profissional_CPF, Usuario_CPF, Endereco, Paciente, Consulta, Data, Hora, Status, Ultima_Alteracao, Medico, Especialidade)
+VALUES ('11122233344', '12345678901', 'Hospital X, Sala 101', 'João Silva', 'Consulta de Rotina', '2023-01-10', '10:00:00', 'Agendado', CURRENT_TIMESTAMP, 'Dr. Oliveira', 'Cardiologia'),
+       ('11122233344', '98765432101', 'Clínica Y, Sala 202', 'Maria Souza', 'Exame de Sangue', '2023-02-15', '15:30:00', 'Pendente', CURRENT_TIMESTAMP, NULL, NULL);
+
+-- Inserir dados na tabela Mensagem
+INSERT INTO Mensagem (Usuario_CPF, Profissional_CPF, Mensagem, Data, Hora)
+VALUES ('12345678901', '11122233344', 'Olá Dr. Oliveira, estou aguardando a consulta.', '2023-01-05', '14:20:00'),
+       ('98765432101', '11122233344', 'Dr. Oliveira, quando posso marcar um novo exame?', '2023-02-10', '11:45:00');
