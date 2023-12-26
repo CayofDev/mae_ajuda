@@ -23,7 +23,7 @@ export default function abas() {
           CHECKLIST
         </Card>
       </Link>
-      <Link className={styles.card} href="/calendario">
+      <Link className={styles.card} href="/dashboard/calendario">
         <Card
           src={localImageCalendario}
           alt="Calendario"

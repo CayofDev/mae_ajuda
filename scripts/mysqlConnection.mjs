@@ -25,11 +25,19 @@ class Connection {
   executeQuery(query, callback) {
     this.connection.query(query, (err, results) => {
       if (err) {
+        // Trata o erro específico quando um e-mail já existe
+        if (err.code === "ER_DUP_ENTRY") {
+          // Erro de entrada duplicada, ou seja, e-mail já existente
+          const emailError = new Error("E-mail já cadastrado");
+          return callback(emailError);
+        }
+
+        // Trata outros erros
         console.error("Erro na consulta: ", err);
-        return callback(err); // Chama o callback com o erro
+        return callback(err);
       }
 
-      callback(null, results); // Chama o callback sem erro, passando os resultados
+      callback(null, results);
     });
   }
 

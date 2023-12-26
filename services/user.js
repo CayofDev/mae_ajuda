@@ -38,6 +38,8 @@ export async function cadastro(body) {
 }
 
 export async function login(body) {
+  if (!body.email || !body.password)
+    throw new Error("Parâmetros inválidos na requisição GET.");
   const query = `SELECT * FROM Pessoa WHERE Email = '${body.email}'`;
   connection.executeQuery(query, (err, results) => {
     const user = !results ? NULL : results;

@@ -1,6 +1,5 @@
 {
   "name": "mae_ajuda",
-  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.10",
+    "@fullcalendar/daygrid": "^6.1.10",
+    "@fullcalendar/interaction": "^6.1.10",
     "axios": "^1.6.2",
     "express": "^4.18.2",
     "git": "^0.1.5",
     "mysql2": "^3.6.5",
     "next": "14.0.2",
-    "react": "^18",
+    "react": "^18.2.0",
+    "react-calendar": "^4.7.0",
     "react-dom": "^18",
     "sharp": "^0.32.6"
   },
