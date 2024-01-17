@@ -36,17 +36,41 @@ export async function cadastro(body) {
   });
   return body;
 }
-
+// const teste = (Pessoa, body) => {
+//   const query2 = `SELECT * FROM Profissional WHERE cpf = "${Pessoa[0].CPF}"`;
+//   let user = {};
+//   connection.executeQuery(query2, (err, results) => {
+//     user = results;
+//     if (!user) throw new Error("Email fornecido não é de um profissional");
+//     if (user[0].senha !== body.password) throw new Error("Senha incorreta");
+//     console.log("logado com sucesso");
+//     console.log(JSON.stringify(user));
+//     return user;
+//   });
+// };
 export async function login(body) {
-  if (!body.email || !body.password)
+  if (!body.cpf || !body.password)
     throw new Error("Parâmetros inválidos na requisição GET.");
-  const query = `SELECT * FROM Pessoa WHERE Email = '${body.email}'`;
-  connection.executeQuery(query, (err, results) => {
-    const user = !results ? NULL : results;
-    if (!user) throw new Error("Email não cadastrado");
-    if (user.password !== body.password) throw new Error("Senha incorreta");
-    console.log("Inserido com sucesso");
-    connection.closeConnection();
+
+  return new Promise((resolve, reject) => {
+    const query = `SELECT * FROM Profissional WHERE cpf = '${body.cpf}'`;
+
+    connection.executeQuery(query, (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        const user = !results ? null : results;
+
+        if (!user) {
+          reject(new Error("CPF fornecido não é de um profissional"));
+        } else if (user[0].senha !== body.password) {
+          reject(new Error("Senha incorreta"));
+        } else {
+          connection.closeConnection();
+          // console.log("Usuário autenticado:", JSON.stringify(user));
+          resolve(user);
+        }
+      }
+    });
   });
-  return user;
 }

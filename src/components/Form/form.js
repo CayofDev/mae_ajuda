@@ -4,11 +4,21 @@ import Button from "../button/button";
 import styles from "./form.module.css";
 
 // components/MyForm.js
-const MyForm = ({ onSubmit }) => {
+const MyForm = ({ onSubmit, formData }) => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
-      <Input type="text" placeHolder="E-mail / CPF do Profissional" />
-      <Input type="password" placeHolder="Senha" />
+      <Input
+        type="text"
+        placeHolder="E-mail / CPF do Profissional"
+        required
+        value={formData.nome}
+      />
+      <Input
+        type="password"
+        placeHolder="Senha"
+        required
+        value={formData.password}
+      />
       <div className={styles.check}>
         <Input type="checkbox" id="checkbox" />
         <label for="checkbox" className={styles.label}>

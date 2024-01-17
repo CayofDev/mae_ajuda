@@ -10,10 +10,15 @@ connection.connect();
 // Consulta
 const query = "SELECT * FROM Eventos";
 // Executa a consulta e manipula os resultados
-connection.executeQuery(query, (results) => {
-  // Lógica adicional após a consulta, se necessário
-  console.log("Resultados da consulta:", results);
 
-  // Fechar a conexão após a consulta
-  connection.closeConnection();
-});
+export default function teste(Pessoa) {
+  const query2 = `SELECT * FROM Profissional WHERE CPF = '${Pessoa.cpf}'`;
+  connection.executeQuery(query2, (err, results) => {
+    const user = !results ? null : results;
+    if (!user) {
+      return null;
+    }
+    connection.closeConnection();
+  });
+  return user;
+}

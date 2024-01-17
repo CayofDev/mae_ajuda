@@ -15,6 +15,7 @@ class Connection {
     this.connection.connect((err) => {
       if (err) {
         console.error("Erro ao conectar: ", err);
+        exit(1);
         return;
       }
       console.log("Conectado ao MySQL!");

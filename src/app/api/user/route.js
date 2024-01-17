@@ -16,7 +16,7 @@ export async function POST(req) {
 export async function GET(request) {
   try {
     const { email, password } = request.headers; // Ou use request.headers, dependendo de como está passando os dados no GET
-    console.log(request.query);
+    // console.log(request.query);
     // Verifique se 'email' e 'password' existem e estão não vazios
     if (!email || !password) {
       throw new Error("Parâmetros inválidos na requisição GET.");

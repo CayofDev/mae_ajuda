@@ -1,0 +1,73 @@
+.main {
+  display: grid;
+  width: auto;
+  height: auto;
+  margin: 0.5rem 5.6rem 2.4rem 5.6rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 15rem 1fr 15rem;
+  overflow: hidden;
+  background-color: var(--azul-escuro);
+  grid-template-areas:
+    "search search"
+    "consultas calendar"
+    "aviso aviso";
+  border-radius: 1.6rem;
+}
+.search {
+  grid-area: search;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.busca {
+  margin: 6rem 6rem 7rem 6rem;
+  width: 180rem;
+  height: 6rem;
+  border: solid;
+  border-width: 0.5rem;
+  border-radius: 1.5rem;
+  border-color: white;
+  background-color: transparent;
+}
+.consultas {
+  grid-area: consultas;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.calendar {
+  grid-area: calendar;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.objeto {
+  width: 36.8rem;
+  height: 32.2rem;
+  margin: 7rem 10rem 5.8rem 18rem;
+}
+.consulta {
+  margin: 3.3rem 3.3rem 3.3rem 5rem;
+  height: 6.4rem;
+  border-radius: 1.6rem;
+  font-weight: 700;
+  font-size: large;
+  color: var(--azul-escuro);
+  background-color: rgba(255, 255, 255, 0.769);
+}
+.aviso {
+  grid-area: aviso;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aviso p {
+  color: white;
+  font-size: 2.4rem;
+  font-weight: 500;
+  align-items: center;
+  text-align: center;
+  margin: 6.6rem;
+}

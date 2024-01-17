@@ -1,0 +1,51 @@
+.contact{
+    display: grid;
+    grid-template-columns: 3rem auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0 1.5rem;
+    line-height: .3rem;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+}
+@media (max-width: 1000px){
+    .contact{
+        padding: 0 1rem;
+    }
+}
+
+.contact:last-of-type{
+    border-bottom: 1px solid #ccc;
+}
+.contact h5, .contact h3{
+    margin: 0;
+    height: 1rem;
+}
+.contact:hover{
+    background: #eef0f1;
+}
+
+.contact img{
+    border-radius: 50%;
+}
+
+.contact h3,
+.contact p{
+    color: black;
+}
+
+.contact h5{
+    color: #494949;
+}
+
+.contact p{
+    font-weight: 600;
+}
+
+.bottom{
+    display: grid;
+    grid-template-columns: auto 3rem;
+    width: 100%;
+    padding: .8rem 0;
+    align-items: center;
+}

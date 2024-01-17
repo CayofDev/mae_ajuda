@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  flex-wrap: nowrap;
+  height: auto;
+}
+.seta {
+  background-image: url("../../public/arrow.svg");
+  background-color: transparent;
+  border: none;
+  height: 3.1rem;
+  width: 3.7rem;
+  margin: 2rem 0rem 3.5rem 6rem;
+}

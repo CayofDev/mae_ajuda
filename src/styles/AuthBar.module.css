@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+.user_img{
+    width: 3rem;
+    height: 3rem;
+    background: rgb(17, 98, 219);
+    display: flex;
+    border-radius: 50vh;
+    overflow: hidden;
+    cursor: pointer;
+}

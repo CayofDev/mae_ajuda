@@ -11,7 +11,7 @@ import Card from "@/components/card/card";
 export default function abas() {
   return (
     <div className={styles.main}>
-      <Link className={styles.card} href="/checklist">
+      <Link className={styles.card} href="/abas/dashboard/checklist">
         <Card
           src={localImageLogo}
           alt="Chaecklist"
@@ -23,7 +23,7 @@ export default function abas() {
           CHECKLIST
         </Card>
       </Link>
-      <Link className={styles.card} href="/dashboard/calendario">
+      <Link className={styles.card} href="/abas/dashboard/calendario">
         <Card
           src={localImageCalendario}
           alt="Calendario"
@@ -35,7 +35,7 @@ export default function abas() {
           CALENDARIO
         </Card>
       </Link>
-      <Link className={styles.card} href="/conversas">
+      <Link className={styles.card} href="/abas/dashboard/conversas">
         <Card
           src={localImageConversas}
           alt="Conversas"
@@ -47,7 +47,7 @@ export default function abas() {
           CONVERSAS
         </Card>
       </Link>
-      <Link className={styles.card} href="/cadastros">
+      <Link className={styles.card} href="/abas/dashboard/cadastros">
         <Card
           src={localImageCadastros}
           alt="Cadastros"
